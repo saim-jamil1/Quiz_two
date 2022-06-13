@@ -1,0 +1,32 @@
+extend ../layout
+
+block content
+        .row
+                .col-sm-8
+                        h1=title
+                .col-sm-4
+                        a(href="/products/add", class="btn btn-success float-right")  Add new product
+        
+        table.table
+                thead
+                        tr
+                                th Product title
+                                th Product Name
+                                th Product price
+                                th Product Description
+                                th Actions
+                tbody
+                        each product in products
+                                tr
+                                        td= product.title
+                                        td= product.name
+                                        td= product.price
+                                        td= product.description
+                                        td
+                                                a(href="/products/edit/" + product.id, class="btn btn-info") Edit
+                                                a(href="/products/delete/" + product.id, class="btn btn-danger") Delete
+                                                a(href="/products/cart/" + product.id, class="btn btn-success") Add to cart
+                                        
+
+block footer
+        h1 products footer here 
